@@ -1,0 +1,252 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url('./images/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.App {
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Lower than the leaves */
+}
+
+.background-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Background animation stays behind the leaves */
+}
+
+.cycle-image {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  bottom: 50px;
+  animation: moveCycle 15s linear infinite;
+  background: transparent;
+  z-index: 2;
+}
+
+@keyframes moveCycle {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+.login-form {
+  max-width: 350px;
+  padding: 30px;
+  padding-left: 40px;  /* Add padding for equal distance */
+  padding-right: 40px; /* Add padding for equal distance */
+  border: 2px solid #b23b3b; /* Add border */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.3); /* Light transparent background */
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 2; /* Form stays above background but below leaves */
+}
+
+.login-form h1 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #b23b3b;
+  text-align: center;
+  animation: slideInFromTop 1s ease-in-out;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  animation: slideInFromLeft 1s ease-in-out;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: calc(100% - 40px);  /* Adjust width to account for padding */
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.2s;
+  animation: slideInFromRight 1s ease-in-out;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: #aaa;
+  outline: none;
+}
+
+.login-form input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  background-color: #b23b3b;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #922d2d;
+}
+
+.additional-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.additional-links a {
+  text-decoration: none;
+  color: #b23b3b;
+  padding: 0 10px;  /* Add padding for spacing */
+  animation: slideInFromBottom 1s ease-in-out;
+}
+
+.additional-links a:hover {
+  color: #922d2d;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.token-message {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Leaf falling animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+/* Create multiple leaves with varying sizes, positions, and delays */
+.falling-leaf {
+  position: absolute;
+  background: url('./images/leaf2.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.7;
+  z-index: 3; /* Ensure leaves fall above the form */
+}
+
+/* Randomize leaf size, position, and animation delay */
+.falling-leaf:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  top: -10%;
+  left: 5%;
+  animation: fall 10s linear infinite;
+  animation-delay: 0s;
+}
+
+.falling-leaf:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: -20%;
+  left: 20%;
+  animation: fall 12s linear infinite;
+  animation-delay: 2s;
+}
+
+.falling-leaf:nth-child(3) {
+  width: 50px;
+  height: 50px;
+  top: -30%;
+  left: 35%;
+  animation: fall 15s linear infinite;
+  animation-delay: 4s;
+}
+
+.falling-leaf:nth-child(4) {
+  width: 70px;
+  height: 70px;
+  top: -40%;
+  left: 50%;
+  animation: fall 20s linear infinite;
+  animation-delay: 6s;
+}
+
+.falling-leaf:nth-child(5) {
+  width: 90px;
+  height: 90px;
+  top: -50%;
+  left: 65%;
+  animation: fall 25s linear infinite;
+  animation-delay: 8s;
+}
+
+.falling-leaf:nth-child(6) {
+  width: 60px;
+  height: 60px;
+  top: -60%;
+  left: 80%;
+  animation: fall 18s linear infinite;
+  animation-delay: 1s;
+}
+
+.falling-leaf:nth-child(7) {
+  width: 80px;
+  height: 80px;
+  top: -70%;
+  left: 10%;
+  animation: fall 22s linear infinite;
+  animation-delay: 3s;
+}
+
+.falling-leaf:nth-child(8) {
+  width: 50px;
+  height: 50px;
+  top: -80%;
+  left: 25%;
+  animation: fall 26s linear infinite;
+  animation-delay: 5s;
+}
+
+.falling-leaf:nth-child(9) {
+  width: 70px;
+  height: 70px;
+  top: -90%;
+  left: 40%;
+  animation: fall 28s linear infinite;
+  animation-delay: 7s;
+}
+
+.falling-leaf:nth-child(10) {
+  width: 90px;
+  height: 90px;
+  top: -100%;
+  left: 55%;
+  animation: fall 30s linear infinite;
+  animation-delay: 9s;
+}
